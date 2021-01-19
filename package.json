@@ -1,0 +1,22 @@
+{
+  "name": "cassidoo",
+  "version": "1.0.0",
+  "description": "cassidoo interview questions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leyanlo/cassidoo.git"
+  },
+  "author": "Leyan Lo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leyanlo/cassidoo/issues"
+  },
+  "homepage": "https://github.com/leyanlo/cassidoo#readme",
+  "dependencies": {
+    "prettier": "^2.2.1"
+  }
+}
