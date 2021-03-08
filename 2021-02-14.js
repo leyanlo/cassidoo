@@ -13,8 +13,8 @@ function makeSentence(str, dict) {
   return sentences;
 }
 
-const str = "penpineapplepenapple";
-const dict = ["apple", "pen", "applepen", "pine", "pineapple"];
+const str = 'penpineapplepenapple';
+const dict = ['apple', 'pen', 'applepen', 'pine', 'pineapple'];
 
 console.log(makeSentence(str, dict));
 // [
