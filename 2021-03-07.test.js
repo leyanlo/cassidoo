@@ -13,37 +13,59 @@ function getCounts(board) {
   return { xCount, oCount };
 }
 
+const winConfigs = [
+  [
+    [0, 0],
+    [0, 1],
+    [0, 2],
+  ],
+  [
+    [1, 0],
+    [1, 1],
+    [1, 2],
+  ],
+  [
+    [2, 0],
+    [2, 1],
+    [2, 2],
+  ],
+  [
+    [0, 0],
+    [1, 0],
+    [2, 0],
+  ],
+  [
+    [0, 1],
+    [1, 1],
+    [2, 1],
+  ],
+  [
+    [0, 2],
+    [1, 2],
+    [2, 2],
+  ],
+  [
+    [0, 0],
+    [1, 1],
+    [2, 2],
+  ],
+  [
+    [0, 2],
+    [1, 1],
+    [2, 0],
+  ],
+];
+
 function getWinners(board) {
   let xWin = false;
   let oWin = false;
-  for (let row of board) {
-    if (row === 'XXX') {
-      xWin = true;
-    } else if (row === 'OOO') {
-      oWin = true;
-    }
-  }
-  for (let c = 0; c < 3; c++) {
-    if (board[0][c] === board[1][c] && board[1][c] === board[2][c]) {
-      if (board[0][c] === 'X') {
+  for (let [[r1, c1], [r2, c2], [r3, c3]] of winConfigs) {
+    if (board[r1][c1] === board[r2][c2] && board[r2][c2] === board[r3][c3]) {
+      if (board[r1][c1] === 'X') {
         xWin = true;
-      } else if (board[0][c] === 'O') {
+      } else if (board[r1][c1] === 'O') {
         oWin = true;
       }
-    }
-  }
-  if (board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
-    if (board[0][0] === 'X') {
-      xWin = true;
-    } else if (board[0][0] === 'O') {
-      oWin = true;
-    }
-  }
-  if (board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
-    if (board[0][2] === 'X') {
-      xWin = true;
-    } else if (board[0][2] === 'O') {
-      oWin = true;
     }
   }
   return { xWin, oWin };
