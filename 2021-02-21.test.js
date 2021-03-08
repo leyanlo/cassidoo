@@ -9,5 +9,7 @@ function everyOther(str) {
   return nDelete;
 }
 
-console.log(everyOther('xxyxxy'));
-console.log(everyOther('yyyyy'));
+test('everyOther', () => {
+  expect(everyOther('xxyxxy')).toBe(2);
+  expect(everyOther('yyyyy')).toBe(4);
+});

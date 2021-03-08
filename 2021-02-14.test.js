@@ -13,12 +13,18 @@ function makeSentence(str, dict) {
   return sentences;
 }
 
-const str = 'penpineapplepenapple';
-const dict = ['apple', 'pen', 'applepen', 'pine', 'pineapple'];
-
-console.log(makeSentence(str, dict));
-// [
-//   "pen pine apple pen apple",
-//   "pen pineapple pen apple",
-//   "pen pine applepen apple",
-// ];
+test('makeSentence', () => {
+  expect(
+    makeSentence('penpineapplepenapple', [
+      'apple',
+      'pen',
+      'applepen',
+      'pine',
+      'pineapple',
+    ])
+  ).toEqual([
+    'pen pine apple pen apple',
+    'pen pine applepen apple',
+    'pen pineapple pen apple',
+  ]);
+});
