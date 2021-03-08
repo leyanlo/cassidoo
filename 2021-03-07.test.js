@@ -39,6 +39,13 @@ function getWinners(board) {
       oWin = true;
     }
   }
+  if (board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
+    if (board[0][2] === 'X') {
+      xWin = true;
+    } else if (board[0][2] === 'O') {
+      oWin = true;
+    }
+  }
   return { xWin, oWin };
 }
 
