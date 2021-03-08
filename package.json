@@ -4,7 +4,7 @@
   "description": "cassidoo interview questions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "homepage": "https://github.com/leyanlo/cassidoo#readme",
   "dependencies": {
     "prettier": "^2.2.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-jest": "^24.1.8",
+    "jest": "^26.6.3"
   }
 }
