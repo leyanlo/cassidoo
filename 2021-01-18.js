@@ -1,6 +1,6 @@
 class Hashmap {
   static hash(str) {
-    return str.split("").reduce((hash, char) => {
+    return str.split('').reduce((hash, char) => {
       return hash * 31 + char.charCodeAt(0);
     }, 7);
   }

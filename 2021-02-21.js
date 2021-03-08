@@ -9,5 +9,5 @@ function everyOther(str) {
   return nDelete;
 }
 
-console.log(everyOther("xxyxxy"));
-console.log(everyOther("yyyyy"));
+console.log(everyOther('xxyxxy'));
+console.log(everyOther('yyyyy'));
