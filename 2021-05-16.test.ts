@@ -49,34 +49,34 @@ function firstAvailable(
 }
 
 describe('firstAvailable', () => {
-  const time = (h: number) =>
+  const hToDate = (h: number) =>
     new Date(`2021-05-17T${h.toString().padStart(2, '0')}:00:00`);
   const hToMs = (h: number) => h * 60 * 60 * 1000;
 
   const alice: Person = {
     name: 'Alice',
     // 8am – 12pm
-    timeSlots: [{ start: time(8), end: time(12) }],
+    timeSlots: [{ start: hToDate(8), end: hToDate(12) }],
   };
   const bob: Person = {
     name: 'Bob',
     // 11am – 3pm
-    timeSlots: [{ start: time(11), end: time(15) }],
+    timeSlots: [{ start: hToDate(11), end: hToDate(15) }],
   };
   const chuck: Person = {
     name: 'Chuck',
     // 9am – 10am, 1pm – 2pm
     timeSlots: [
-      { start: time(9), end: time(10) },
-      { start: time(13), end: time(14) },
+      { start: hToDate(9), end: hToDate(10) },
+      { start: hToDate(13), end: hToDate(14) },
     ],
   };
 
   it('returns the first available meeting time', () => {
-    expect(firstAvailable([alice], hToMs(1))).toEqual(time(8));
-    expect(firstAvailable([alice, bob], hToMs(1))).toEqual(time(11));
-    expect(firstAvailable([alice, chuck], hToMs(1))).toEqual(time(9));
-    expect(firstAvailable([bob, chuck], hToMs(1))).toEqual(time(13));
+    expect(firstAvailable([alice], hToMs(1))).toEqual(hToDate(8));
+    expect(firstAvailable([alice, bob], hToMs(1))).toEqual(hToDate(11));
+    expect(firstAvailable([alice, chuck], hToMs(1))).toEqual(hToDate(9));
+    expect(firstAvailable([bob, chuck], hToMs(1))).toEqual(hToDate(13));
   });
   it('returns null if no people', () => {
     expect(firstAvailable([], hToMs(1))).toBe(null);
