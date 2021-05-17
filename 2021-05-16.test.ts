@@ -33,15 +33,18 @@ function firstAvailable(
               // b cannot start after potential solution time
               return false;
             } else {
+              // return if the meeting works for both a and b
               return bEndTime - aStartTime >= meetingLengthMs;
             }
           });
         })
       ) {
+        // meeting works for a and everyone else
         return aStart;
       }
     }
   }
+  // meeting does not work for everyone
   return null;
 }
 
