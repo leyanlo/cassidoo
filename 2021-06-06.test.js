@@ -1,14 +1,15 @@
 function lonelyNumber(...nums) {
-  const counts = nums.reduce((counts, num) => {
+  const counts = {};
+  for (const num of nums) {
     counts[num] = (counts[num] ?? 0) + 1;
-    return counts;
-  }, {});
-  return Object.entries(counts).reduce((product, [num, count]) => {
+  }
+  let product = 1;
+  for (const [num, count] of Object.entries(counts)) {
     if (count === 1) {
       product *= num;
     }
-    return product;
-  }, 1);
+  }
+  return product;
 }
 
 test('lonelyNumber', () => {
