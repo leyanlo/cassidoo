@@ -1,22 +1,17 @@
-function printArrow(dir, n) {
+function getLines(startLen, endLen) {
   const lines = [];
-  let lineLength, dLineLength;
-  if (dir === 'right') {
-    lineLength = 1;
-    dLineLength = 1;
-  } else {
-    lineLength = n;
-    dLineLength = -1;
+  const dLen = endLen > startLen ? 1 : -1;
+  for (let len = startLen; len !== endLen + dLen; len += dLen) {
+    lines.push('*'.padStart(len, ' '));
   }
-  for (let i = 0; i < n - 1; i++) {
-    lines.push('*'.padStart(lineLength, ' '));
-    lineLength += dLineLength;
-  }
-  dLineLength *= -1;
-  for (let i = 0; i < n; i++) {
-    lines.push('*'.padStart(lineLength, ' '));
-    lineLength += dLineLength;
-  }
+  return lines;
+}
+
+function printArrow(dir, n) {
+  const lines =
+    dir === 'right'
+      ? getLines(1, n).concat(getLines(n - 1, 1))
+      : getLines(n, 1).concat(getLines(2, n));
   console.log(lines.join('\n'));
 }
 
