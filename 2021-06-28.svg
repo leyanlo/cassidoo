@@ -1,15 +1,15 @@
 <svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
   <g stroke-width="120">
-    <path d="m0,60 h1280" stroke="#FF1E25"/>
-    <path d="m0,180 h1280" stroke="#FE931D"/>
-    <path d="m0,300 h1280" stroke="#FFFF04"/>
-    <path d="m0,420 h1280" stroke="#06BD02"/>
-    <path d="m0,540 h1280" stroke="#021A98"/>
-    <path d="m0,660 h1280" stroke="#760088"/>
+    <path d="m0,60 h1280" stroke="#EE3124"/>
+    <path d="m0,180 h1280" stroke="#F57F29"/>
+    <path d="m0,300 h1280" stroke="#FFF001"/>
+    <path d="m0,420 h1280" stroke="#59B948"/>
+    <path d="m0,540 h1280" stroke="#0054A6"/>
+    <path d="m0,660 h1280" stroke="#9F248F"/>
   </g>
-  <path d="m90,0 h90 l359,359 a2,2 0 0 1 0,2 l-359,359 h-90"/>
-  <path d="m-1,0 h90 l356,356 a8,8 0 0 1 0,8 l-356,356 h-90" fill="#603813"/>
-  <path d="m-92,0 h90 l356,356 a8,8 0 0 1 0,8 l-356,356 h-90" fill="#74D6EB"/>
-  <path d="m-183,0 h90 l356,356 a8,8 0 0 1 0,8 l-356,356 h-90" fill="#FDAEC8"/>
-  <path d="m-274,0 h90 l356,356 a8,8 0 0 1 0,8 l-356,356 h-90" fill="#FBF7F5"/>
+  <path d="m90,0 h90 l360,360 l-360,360 h-90"/>
+  <path d="m0,0 h90 l360,360 l-360,360 h-90" fill="#603917"/>
+  <path d="m-90,0 h90 l360,360 l-360,360 h-90" fill="#7CC0EA"/>
+  <path d="m-180,0 h90 l360,360 l-360,360 h-90" fill="#F498C1"/>
+  <path d="m-270,0 h90 l360,360 l-360,360 h-90" fill="#FFFFFF"/>
 </svg>
