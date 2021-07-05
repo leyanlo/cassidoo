@@ -1,4 +1,4 @@
-const keys = [
+const keyboard = [
   ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '='],
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'"],
@@ -6,7 +6,7 @@ const keys = [
   [' '],
 ];
 
-const shiftMap = keys.reduce((acc, row) => {
+const shiftMap = keyboard.reduce((acc, row) => {
   for (let i = 0; i < row.length; i++) {
     acc[row[i]] = row[i - 1] ?? row[i];
   }
