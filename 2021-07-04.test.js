@@ -6,7 +6,7 @@ const keyboard = [
 ];
 
 const shiftMap = keyboard.reduce((acc, row) => {
-  for (let i = 0; i < row.length; i++) {
+  for (let i = 1; i < row.length; i++) {
     acc[row[i]] = row[i - 1];
   }
   return acc;
