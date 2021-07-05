@@ -3,12 +3,11 @@ const keyboard = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'"],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'],
-  [' '],
 ];
 
 const shiftMap = keyboard.reduce((acc, row) => {
   for (let i = 0; i < row.length; i++) {
-    acc[row[i]] = row[i - 1] ?? row[i];
+    acc[row[i]] = row[i - 1];
   }
   return acc;
 }, {});
@@ -16,7 +15,7 @@ const shiftMap = keyboard.reduce((acc, row) => {
 function translateShift(str) {
   return str
     .split('')
-    .map((char) => shiftMap[char])
+    .map((char) => shiftMap[char] ?? ' ')
     .join('');
 }
 
