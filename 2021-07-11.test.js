@@ -6,8 +6,8 @@ function ipv4ToBinary(addr) {
 }
 
 function inRange(addr, netmask) {
-  const binAddr = ipv4ToBinary(addr);
   const [maskAddr, maskBits] = netmask.split('/');
+  const binAddr = ipv4ToBinary(addr);
   const binMaskAddr = ipv4ToBinary(maskAddr);
   return binAddr.substring(0, maskBits) === binMaskAddr.substring(0, maskBits);
 }
