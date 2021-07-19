@@ -11,7 +11,7 @@ function subarraySum(arr, n) {
       }
     }
   }
-  return count;
+  return count || -1;
 }
 
 test('subarraySum', () => {
