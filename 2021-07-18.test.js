@@ -2,11 +2,8 @@ function subarraySum(arr, n) {
   const sums = arr.map((num, i) => num + (arr[i - 1] ?? 0));
   let count = 0;
   for (let i = 0; i < sums.length; i++) {
-    if (sums[i] === n) {
-      count++;
-    }
-    for (let j = 0; j < i; j++) {
-      if (sums[i] - sums[j] === n) {
+    for (let j = -1; j < i; j++) {
+      if (sums[i] - (sums[j] ?? 0) === n) {
         count++;
       }
     }
