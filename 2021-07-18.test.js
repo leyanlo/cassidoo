@@ -5,7 +5,7 @@ function subarraySum(arr, n) {
     if (sums[i] === n) {
       count++;
     }
-    for (let j = i - 1; j >= 0; j--) {
+    for (let j = 0; j < i; j++) {
       if (sums[i] - sums[j] === n) {
         count++;
       }
