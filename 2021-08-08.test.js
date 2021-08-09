@@ -11,9 +11,7 @@ const dirs = [
 
 function generateMinesweeper(gridSize, mines) {
   // init grid
-  const grid = [...Array(gridSize)].map(() =>
-    [...Array(gridSize)].map(() => 0)
-  );
+  const grid = [...Array(gridSize)].map(() => [...Array(gridSize)].fill(0));
 
   // init mines
   for (const [col, row] of mines) {
