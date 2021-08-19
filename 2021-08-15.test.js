@@ -1,11 +1,13 @@
 function pSubstring(s) {
   let longestPalindrome = '';
-  for (let i = 0; i < s.length; i++) {
+  for (let i = 0; i < s.length; i += 0.5) {
     for (let j = 0; j < Math.min(i + 1, s.length - i); j++) {
-      if (!s[i + j] || !s[i - j] || s[i + j] !== s[i - j]) {
+      const left = Math.floor(i - j);
+      const right = Math.ceil(i + j);
+      if (!s[left] || !s[right] || s[left] !== s[right]) {
         break;
       }
-      const palindrome = s.substring(i - j, i + j + 1);
+      const palindrome = s.substring(left, right + 1);
       if (longestPalindrome.length < palindrome.length) {
         longestPalindrome = palindrome;
       }
@@ -16,4 +18,5 @@ function pSubstring(s) {
 
 test('pSubstring', () => {
   expect(pSubstring('babad')).toBe('bab');
+  expect(pSubstring('babbad')).toBe('abba');
 });
