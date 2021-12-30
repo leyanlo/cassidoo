@@ -1,3 +1,10 @@
+function decrementCount(map, i, firework) {
+  if (i > 1) {
+    map[i - 1] = map[i - 1] ?? [];
+    map[i - 1].push(firework);
+  }
+}
+
 function orderFireworks(fireworks) {
   // count how many of each firework there are
   const counts = {};
@@ -5,23 +12,44 @@ function orderFireworks(fireworks) {
     counts[firework] = (counts[firework] ?? 0) + 1;
   }
 
-  // sort from most to least frequent
-  const order = Object.entries(counts)
-    .sort(([, c1], [, c2]) => c2 - c1)
-    .flatMap(([firework, count]) => Array(count).fill(firework));
+  // map count to fireworks
+  const map = [];
+  for (const [firework, count] of Object.entries(counts)) {
+    map[count] = map[count] ?? [];
+    map[count].push(firework);
+  }
 
-  // swap until order is valid
-  outer: for (let i = 1; i < order.length; i++) {
-    if (order[i] === order[i - 1]) {
-      for (let j = i + 1; j < order.length; j++) {
-        if (order[j] !== order[i]) {
-          order[i] = order[j];
-          order[j] = order[i - 1];
-          continue outer;
+  // build firing order based on map
+  const order = [];
+  for (let i = map.length - 1; i > 0; i--) {
+    while (map[i].length) {
+      const curr = map[i].shift();
+      if (order[order.length - 1] !== curr) {
+        order.push(curr);
+        decrementCount(map, i, curr);
+        continue;
+      }
+
+      let next;
+      if (map[i].length) {
+        next = map[i].shift();
+      } else {
+        for (let j = i - 1; j >= 0; j--) {
+          if (map[j]?.length) {
+            next = map[j].shift();
+            decrementCount(map, j, next);
+            break;
+          }
         }
       }
-      // valid swap not found
-      return null;
+
+      // no valid firing order
+      if (!next) {
+        return null;
+      }
+
+      order.push(next, curr);
+      decrementCount(map, i, curr);
     }
   }
   return order;
@@ -30,10 +58,10 @@ function orderFireworks(fireworks) {
 test('orderFireworks', () => {
   expect(
     orderFireworks(['green', 'green', 'green', 'red', 'red', 'blue'])
-  ).toEqual(['green', 'red', 'green', 'red', 'green', 'blue']);
+  ).toEqual(['green', 'red', 'green', 'blue', 'red', 'green']);
   expect(
     orderFireworks(['green', 'green', 'green', 'green', 'red', 'red', 'blue'])
-  ).toEqual(['green', 'red', 'green', 'red', 'green', 'blue', 'green']);
+  ).toEqual(['green', 'red', 'green', 'blue', 'green', 'red', 'green']);
   expect(
     orderFireworks([
       'green',
@@ -46,4 +74,7 @@ test('orderFireworks', () => {
       'blue',
     ])
   ).toBe(null);
+  expect(
+    orderFireworks(['green', 'green', 'red', 'red', 'blue', 'blue'])
+  ).toEqual(['green', 'red', 'blue', 'green', 'red', 'blue']);
 });
