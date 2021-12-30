@@ -8,14 +8,15 @@ function decrementCount(map, i, firework) {
 function orderFireworks(fireworks) {
   // count how many of each firework there are
   const counts = {};
+  let maxCount = 0;
   for (const firework of fireworks) {
     counts[firework] = (counts[firework] ?? 0) + 1;
+    maxCount = Math.max(maxCount, counts[firework]);
   }
 
   // map count to fireworks
-  const map = [];
+  const map = [...Array(maxCount + 1)].map(() => []);
   for (const [firework, count] of Object.entries(counts)) {
-    map[count] = map[count] ?? [];
     map[count].push(firework);
   }
 
@@ -35,7 +36,7 @@ function orderFireworks(fireworks) {
         next = map[i].shift();
       } else {
         for (let j = i - 1; j >= 0; j--) {
-          if (map[j]?.length) {
+          if (map[j].length) {
             next = map[j].shift();
             decrementCount(map, j, next);
             break;
