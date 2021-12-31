@@ -24,6 +24,7 @@ function orderFireworks(fireworks) {
         continue;
       }
 
+      // first insert next available firework to avoid duplicates
       let next;
       block: {
         for (let j = i; j > 0; j--) {
