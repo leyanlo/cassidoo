@@ -25,21 +25,18 @@ function orderFireworks(fireworks) {
       }
 
       let next;
-      if (map[i].length) {
-        next = map[i].shift();
-      } else
-        block: {
-          for (let j = i - 1; j > 0; j--) {
-            if (map[j].length) {
-              next = map[j].shift();
-              map[j - 1].push(next);
-              break block;
-            }
+      block: {
+        for (let j = i; j > 0; j--) {
+          if (map[j].length) {
+            next = map[j].shift();
+            map[j - 1].push(next);
+            break block;
           }
-
-          // no valid firing order
-          return null;
         }
+
+        // no valid firing order
+        return null;
+      }
 
       order.push(next, curr);
       map[i - 1].push(curr);
