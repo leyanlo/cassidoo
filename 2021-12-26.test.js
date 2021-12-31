@@ -20,14 +20,14 @@ function orderFireworks(fireworks) {
       const curr = map[i].shift();
 
       if (order[order.length - 1] === curr)
-        avoidDupe: {
+        findNext: {
           // insert next available firework to avoid duplicates
           for (let j = i; j > 0; j--) {
             if (map[j].length) {
               const next = map[j].shift();
               order.push(next);
               map[j - 1].push(next);
-              break avoidDupe;
+              break findNext;
             }
           }
 
