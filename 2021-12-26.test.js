@@ -18,28 +18,24 @@ function orderFireworks(fireworks) {
   for (let i = map.length - 1; i > 0; i--) {
     while (map[i].length) {
       const curr = map[i].shift();
-      if (order[order.length - 1] !== curr) {
-        order.push(curr);
-        map[i - 1].push(curr);
-        continue;
-      }
 
-      // first insert next available firework to avoid duplicates
-      let next;
-      block: {
-        for (let j = i; j > 0; j--) {
-          if (map[j].length) {
-            next = map[j].shift();
-            map[j - 1].push(next);
-            break block;
+      if (order[order.length - 1] === curr)
+        avoidDupe: {
+          // insert next available firework to avoid duplicates
+          for (let j = i; j > 0; j--) {
+            if (map[j].length) {
+              const next = map[j].shift();
+              order.push(next);
+              map[j - 1].push(next);
+              break avoidDupe;
+            }
           }
+
+          // no valid firing order
+          return null;
         }
 
-        // no valid firing order
-        return null;
-      }
-
-      order.push(next, curr);
+      order.push(curr);
       map[i - 1].push(curr);
     }
   }
