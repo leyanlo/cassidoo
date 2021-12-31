@@ -1,9 +1,3 @@
-function decrementCount(map, i, firework) {
-  if (i > 1) {
-    map[i - 1].push(firework);
-  }
-}
-
 function orderFireworks(fireworks) {
   // count how many of each firework there are
   const counts = {};
@@ -26,30 +20,29 @@ function orderFireworks(fireworks) {
       const curr = map[i].shift();
       if (order[order.length - 1] !== curr) {
         order.push(curr);
-        decrementCount(map, i, curr);
+        map[i - 1].push(curr);
         continue;
       }
 
       let next;
       if (map[i].length) {
         next = map[i].shift();
-      } else {
-        for (let j = i - 1; j >= 0; j--) {
-          if (map[j].length) {
-            next = map[j].shift();
-            decrementCount(map, j, next);
-            break;
+      } else
+        block: {
+          for (let j = i - 1; j > 0; j--) {
+            if (map[j].length) {
+              next = map[j].shift();
+              map[j - 1].push(next);
+              break block;
+            }
           }
-        }
-      }
 
-      // no valid firing order
-      if (!next) {
-        return null;
-      }
+          // no valid firing order
+          return null;
+        }
 
       order.push(next, curr);
-      decrementCount(map, i, curr);
+      map[i - 1].push(curr);
     }
   }
   return order;
