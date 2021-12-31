@@ -1,6 +1,5 @@
 function decrementCount(map, i, firework) {
   if (i > 1) {
-    map[i - 1] = map[i - 1] ?? [];
     map[i - 1].push(firework);
   }
 }
