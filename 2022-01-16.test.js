@@ -1,21 +1,35 @@
 function wordleGuess(guess, solution) {
-  return guess
-    .split('')
-    .map((char, i) =>
-      char === solution[i]
-        ? '🟩'
-        : solution.includes(char) &&
-          [...guess.slice(0, i + 1).matchAll(char)].length <=
-            [...solution.matchAll(char)].length
-        ? '🟨'
-        : '⬛'
-    )
-    .join('');
+  const emojis = Array(5).fill('⬛');
+  const counts = [...solution].reduce((acc, char) => {
+    acc[char] = (acc[char] ?? 0) + 1;
+    return acc;
+  }, {});
+  const wrongIndexes = [];
+
+  for (let i = 0; i < 5; i++) {
+    if (guess[i] === solution[i]) {
+      emojis[i] = '🟩';
+      counts[guess[i]]--;
+    } else {
+      wrongIndexes.push(i);
+    }
+  }
+
+  for (const i of wrongIndexes) {
+    if (counts[guess[i]]) {
+      emojis[i] = '🟨';
+      counts[guess[i]]--;
+    }
+  }
+
+  return emojis.join('');
 }
 
 test('wordleGuess', () => {
-  let solutionWord = 'fudge';
-  expect(wordleGuess('reads', solutionWord)).toBe('⬛🟨⬛🟨⬛');
-  expect(wordleGuess('lodge', solutionWord)).toBe('⬛⬛🟩🟩🟩');
-  expect(wordleGuess('deeds', solutionWord)).toBe('🟨🟨⬛⬛⬛');
+  expect(wordleGuess('reads', 'fudge')).toBe('⬛🟨⬛🟨⬛');
+  expect(wordleGuess('lodge', 'fudge')).toBe('⬛⬛🟩🟩🟩');
+  expect(wordleGuess('deeds', 'fudge')).toBe('🟨🟨⬛⬛⬛');
+  expect(wordleGuess('error', 'tries')).toBe('🟨🟩⬛⬛⬛');
+  expect(wordleGuess('cooks', 'blond')).toBe('⬛⬛🟩⬛⬛');
+  expect(wordleGuess('abbbb', 'aaccc')).toBe('🟩⬛⬛⬛⬛');
 });
