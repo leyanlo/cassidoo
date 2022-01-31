@@ -6,21 +6,25 @@ let humans = [
 
 function localTime(name, hour24) {
   let [, dh, dm] = humans
-    .find((h) => h.name === name)
+    .find((human) => human.name === name)
     .timezone.match(/^UTC([-+]\d+):(\d+)$/);
   dh = parseInt(dh);
   dm = parseInt(dm);
   const t = new Date(Date.now() + dh * 3600000 + dm * 60000);
   const h = t.getHours();
   const m = t.getMinutes();
-  return `${hour24 ? h : h % 12}:${m.toString().padStart(2, '0')}${
-    hour24 ? '' : h < 12 ? 'am' : 'pm'
-  }`;
+  return `${
+    hour24 ? h.toString().padStart(2, '0') : ((h + 11) % 12) + 1
+  }:${m.toString().padStart(2, '0')}${hour24 ? '' : h < 12 ? 'am' : 'pm'}`;
 }
 
 jest.useFakeTimers().setSystemTime(new Date('2022-01-31T05:26:00').getTime());
 
 test('localTime', () => {
+  expect(localTime('Clara')).toBe(`1:26am`);
+  expect(localTime('Clara', true)).toBe(`01:26`);
   expect(localTime('Cami')).toBe(`10:26pm`);
   expect(localTime('Cami', true)).toBe(`22:26`);
+  expect(localTime('Ximena')).toBe(`12:26am`);
+  expect(localTime('Ximena', true)).toBe(`00:26`);
 });
