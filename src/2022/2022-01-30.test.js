@@ -5,14 +5,13 @@ let humans = [
 ];
 
 function localTime(name, hour24) {
-  let [, dh, dm] = humans
-    .find((human) => human.name === name)
-    .timezone.match(/^UTC([-+]\d+):(\d+)$/);
+  const { timezone } = humans.find((human) => human.name === name);
+  let [, dh, dm] = timezone.match(/^UTC([-+]\d+):(\d+)$/);
   dh = parseInt(dh);
   dm = parseInt(dm);
-  const t = new Date(Date.now() + dh * 3600000 + dm * 60000);
-  const h = t.getHours();
-  const m = t.getMinutes();
+  const date = new Date(Date.now() + dh * 3_600_000 + dm * 60_000);
+  const h = date.getHours();
+  const m = date.getMinutes();
   return `${
     hour24 ? h.toString().padStart(2, '0') : ((h + 11) % 12) + 1
   }:${m.toString().padStart(2, '0')}${hour24 ? '' : h < 12 ? 'am' : 'pm'}`;
