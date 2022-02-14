@@ -10,8 +10,8 @@ function remoteControl(word) {
   for (const char of word) {
     const dr = keyboard.findIndex((row) => row.includes(char)) - r;
     const dc = keyboard[r + dr].indexOf(char) - c;
-    for (let i = 0; i < dr; i++) buttons.push('down');
     for (let i = 0; i < -dc; i++) buttons.push('left');
+    for (let i = 0; i < dr; i++) buttons.push('down');
     for (let i = 0; i < -dr; i++) buttons.push('up');
     for (let i = 0; i < dc; i++) buttons.push('right');
     buttons.push('select');
