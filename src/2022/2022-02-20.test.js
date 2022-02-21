@@ -1,5 +1,5 @@
 function longestSubSeq(arr) {
-  const sortedUniques = [...new Set([...arr].sort((a, b) => a - b))];
+  const sortedUniques = [...new Set(arr)].sort((a, b) => a - b);
   let longestSubSeq = 0;
   let subSeq = 0;
   for (let i = 1; i < sortedUniques.length; i++) {
