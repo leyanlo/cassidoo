@@ -4,21 +4,20 @@ function whoOwes(receipts) {
     map[name] = (map[name] ?? 0) + paid;
   }
   const values = Object.values(map);
-  const avg = ~~(values.reduce((acc, n) => acc + n) / values.length);
-  const balances = Object.entries(map).map(([name, paid]) => [
+  const avg = Math.round(values.reduce((acc, n) => acc + n) / values.length);
+  const balances = Object.entries(map).map(([name, paid]) => ({
     name,
-    paid - avg,
-  ]);
+    balance: paid - avg,
+  }));
   const owes = [];
-  while (balances.some(([, paid]) => paid !== 0)) {
-    balances.sort(([, a], [, b]) => a - b);
+  while (balances.filter(({ balance }) => balance !== 0).length > 1) {
+    balances.sort(({ balance: a }, { balance: b }) => a - b);
     const ower = balances[0];
     const owee = balances[balances.length - 1];
-    const amount = Math.min(-ower[1], owee[1]);
-    if (!amount) break;
-    ower[1] += amount;
-    owee[1] -= amount;
-    owes.push(`${ower[0]} owes ${owee[0]} $${amount}`);
+    const amount = Math.min(-ower.balance, owee.balance);
+    ower.balance += amount;
+    owee.balance -= amount;
+    owes.push(`${ower.name} owes ${owee.name} $${amount}`);
   }
   return owes.join(', ');
 }
@@ -42,7 +41,7 @@ test('whoOwes', () => {
     'Clara owes Ximena $7, Clara owes Cassidy $1'
   );
   expect(whoOwes(receipts.slice(0, 5))).toBe(
-    'Clara owes Cassidy $33, Ximena owes Cassidy $18'
+    'Clara owes Cassidy $34, Ximena owes Cassidy $18'
   );
   expect(whoOwes(receipts.slice(0, 6))).toBe(
     'Ximena owes Cassidy $28, Clara owes Cassidy $14'
