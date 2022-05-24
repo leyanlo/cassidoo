@@ -14,10 +14,12 @@ const dirName = {
 
 function startToEnd(mat) {
   let paths;
+  const seen = mat.map((row) => row.map((col) => false));
   outer: for (let i = 0; i < mat.length; i++) {
     for (let j = 0; j < mat[i].length; j++) {
       if (mat[i][j] === 1) {
         paths = [[[i, j]]];
+        seen[i][j] = true;
         break outer;
       }
     }
@@ -30,6 +32,9 @@ function startToEnd(mat) {
       for (const [di, dj] of dirs) {
         const i2 = i + di;
         const j2 = j + dj;
+        if (seen[i2]?.[j2]) {
+          continue;
+        }
         switch (mat[i2]?.[j2]) {
           case 2:
             foundEnd = true;
@@ -43,10 +48,10 @@ function startToEnd(mat) {
     if (foundEnd) {
       break;
     }
-    // avoid retracing by adding walls
+    // avoid retracing by saving seen coords
     for (const path of paths) {
       const [i, j] = path[path.length - 1];
-      mat[i][j] = 3;
+      seen[i][j] = true;
     }
   }
   return paths
