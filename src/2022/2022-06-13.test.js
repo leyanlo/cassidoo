@@ -1,5 +1,5 @@
 function longText(str, n) {
-  return str.replaceAll(/[aeiou]/gi, (s) => Array(n).fill(s).join(''));
+  return str.replaceAll(/[aeiou]/gi, (s) => s.repeat(n));
 }
 
 test('longText', () => {
