@@ -1,8 +1,7 @@
 function longestWord(str, dict) {
   return [...dict].reduce(
     (acc, word) =>
-      acc.length < word.length &&
-      new RegExp(word.split('').join('.*')).test(str)
+      acc.length < word.length && new RegExp([...word].join('.*')).test(str)
         ? word
         : acc,
     ''
