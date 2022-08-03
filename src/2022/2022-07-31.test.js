@@ -16,12 +16,13 @@ function numberOfOnesSlow(n) {
 //     Math.max(~~((n + 81) / 100) * 10, n - 9 - ~~((n + 81) / 100) * 90) +
 //     Math.max(~~((n + 801) / 1000) * 100, n - 99 - ~~((n + 801) / 1000) * 900) + ...
 function numberOfOnes(n) {
-  let ans = 0;
+  let count = 0;
   for (let pow = 1; pow <= n; pow *= 10) {
-    const step = ~~((n + 8 * pow + 1) / (10 * pow));
-    ans += Math.max(step * pow, n - (pow - 1) - step * 9 * pow);
+    const stepFn = ~~((n + 8 * pow + 1) / (10 * pow)) * pow;
+    const sawtoothFn = n - (pow - 1) - stepFn * 9;
+    count += Math.max(stepFn, sawtoothFn);
   }
-  return ans;
+  return count;
 }
 
 test('numberOfOnes', () => {
