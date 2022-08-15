@@ -18,6 +18,8 @@
   "homepage": "https://github.com/leyanlo/cassidoo#readme",
   "devDependencies": {
     "@types/jest": "^27.4.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.0.0",
     "jest": "^27.4.7",
     "prettier": "^2.5.1",
