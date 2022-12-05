@@ -40,9 +40,8 @@ function checkBoard(board) {
 }
 
 function createBoard() {
-  let isValid = false;
   let board;
-  while (!isValid) {
+  do {
     const shuffled = shuffle([...hexes]);
     board = [
       shuffled.slice(0, 3),
@@ -51,8 +50,7 @@ function createBoard() {
       shuffled.slice(12, 16),
       shuffled.slice(16),
     ];
-    isValid = checkBoard(board);
-  }
+  } while (!checkBoard(board));
   return board;
 }
 
