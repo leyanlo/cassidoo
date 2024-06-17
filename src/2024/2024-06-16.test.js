@@ -1,5 +1,5 @@
 function nVowels(str) {
-  return str.match(/[aeiou]/gi).length;
+  return str.match(/[aeiou]/gi)?.length ?? 0;
 }
 
 function sortNames(names) {
