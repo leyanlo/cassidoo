@@ -24,7 +24,7 @@ function parseHTML(html) {
 test('parseHTML', () => {
   expect(
     parseHTML(`<p><img src="https://i.imgur.com/LSG9xg3.jpeg" /></p>`)
-  ).toEqual([
+  ).toStrictEqual([
     { tag: 'p' },
     { tag: 'img', attributes: [{ src: 'https://i.imgur.com/LSG9xg3.jpeg' }] },
   ]);

@@ -13,6 +13,8 @@ function maxSubarray(arr, n) {
 }
 
 test('maxSubarray', () => {
-  expect(maxSubarray([-4, 2, -5, 1, 2, 3, 6, -5, 1], 4)).toEqual([1, 2, 3, 6]);
-  expect(maxSubarray([1, 2, 0, 5], 2)).toEqual([0, 5]);
+  expect(maxSubarray([-4, 2, -5, 1, 2, 3, 6, -5, 1], 4)).toStrictEqual([
+    1, 2, 3, 6,
+  ]);
+  expect(maxSubarray([1, 2, 0, 5], 2)).toStrictEqual([0, 5]);
 });

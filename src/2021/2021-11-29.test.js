@@ -24,8 +24,8 @@ function phoneLetter(digits) {
 }
 
 test('phoneLetter', () => {
-  expect(phoneLetter('9')).toEqual(['w', 'x', 'y', 'z']);
-  expect(phoneLetter('23')).toEqual([
+  expect(phoneLetter('9')).toStrictEqual(['w', 'x', 'y', 'z']);
+  expect(phoneLetter('23')).toStrictEqual([
     'ad',
     'ae',
     'af',

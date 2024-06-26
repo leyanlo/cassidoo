@@ -15,9 +15,9 @@ function removeFolder(folders, remove) {
 test('removeFolder', () => {
   expect(
     removeFolder(['/a', '/a/b', '/c/d', '/c/d/e', '/c/f', '/c/f/g'], 'c')
-  ).toEqual(['/a', '/a/b']);
+  ).toStrictEqual(['/a', '/a/b']);
 
   expect(
     removeFolder(['/a', '/a/b', '/c/d', '/c/d/e', '/c/f', '/c/f/g'], 'd')
-  ).toEqual(['/a', '/a/b', '/c', '/c/f', '/c/f/g']);
+  ).toStrictEqual(['/a', '/a/b', '/c', '/c/f', '/c/f/g']);
 });

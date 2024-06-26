@@ -22,7 +22,7 @@ test('makeSentence', () => {
       'pine',
       'pineapple',
     ])
-  ).toEqual([
+  ).toStrictEqual([
     'pen pine apple pen apple',
     'pen pine applepen apple',
     'pen pineapple pen apple',

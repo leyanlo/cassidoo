@@ -72,14 +72,16 @@ function validSets(tray) {
 describe('validSets', () => {
   it('handles sames', () => {
     // has no sets
-    expect(validSets(['1R', '1U'])).toEqual([]);
-    expect(validSets(['1R', '1U', '1U'])).toEqual([]);
-    expect(validSets(['1R', 'wildcard'])).toEqual([]);
+    expect(validSets(['1R', '1U'])).toStrictEqual([]);
+    expect(validSets(['1R', '1U', '1U'])).toStrictEqual([]);
+    expect(validSets(['1R', 'wildcard'])).toStrictEqual([]);
 
     // has sets
-    expect(validSets(['1R', '1U', '1B'])).toEqual([['1R', '1U', '1B']]);
-    expect(validSets(['1R', '1U', '1B', '1B'])).toEqual([['1R', '1U', '1B']]);
-    expect(validSets(['1R', '1U', '1B', '1Y'])).toEqual([
+    expect(validSets(['1R', '1U', '1B'])).toStrictEqual([['1R', '1U', '1B']]);
+    expect(validSets(['1R', '1U', '1B', '1B'])).toStrictEqual([
+      ['1R', '1U', '1B'],
+    ]);
+    expect(validSets(['1R', '1U', '1B', '1Y'])).toStrictEqual([
       ['1R', '1U', '1B'],
       ['1R', '1U', '1Y'],
       ['1R', '1B', '1Y'],
@@ -88,17 +90,17 @@ describe('validSets', () => {
     ]);
 
     // has sets using wildcard
-    expect(validSets(['1R', '1U', 'wildcard'])).toEqual([
+    expect(validSets(['1R', '1U', 'wildcard'])).toStrictEqual([
       ['1R', '1U', 'wildcard'],
     ]);
-    expect(validSets(['1R', '1U', '1B', 'wildcard'])).toEqual([
+    expect(validSets(['1R', '1U', '1B', 'wildcard'])).toStrictEqual([
       ['1R', '1U', '1B'],
       ['1R', '1U', 'wildcard'],
       ['1R', '1B', 'wildcard'],
       ['1U', '1B', 'wildcard'],
       ['1R', '1U', '1B', 'wildcard'],
     ]);
-    expect(validSets(['1R', '1U', '1B', '1Y', 'wildcard'])).toEqual([
+    expect(validSets(['1R', '1U', '1B', '1Y', 'wildcard'])).toStrictEqual([
       ['1R', '1U', '1B'],
       ['1R', '1U', '1Y'],
       ['1R', '1U', 'wildcard'],
@@ -119,31 +121,33 @@ describe('validSets', () => {
 
   it('handles runs', () => {
     // has no runs
-    expect(validSets(['1R', '2R'])).toEqual([]);
-    expect(validSets(['1R', '2R', '2R'])).toEqual([]);
-    expect(validSets(['1R', 'wildcard'])).toEqual([]);
+    expect(validSets(['1R', '2R'])).toStrictEqual([]);
+    expect(validSets(['1R', '2R', '2R'])).toStrictEqual([]);
+    expect(validSets(['1R', 'wildcard'])).toStrictEqual([]);
 
     // has runs
-    expect(validSets(['1R', '2R', '3R'])).toEqual([['1R', '2R', '3R']]);
-    expect(validSets(['1R', '2R', '3R', '3R'])).toEqual([['1R', '2R', '3R']]);
-    expect(validSets(['1R', '2R', '3R', '4R'])).toEqual([
+    expect(validSets(['1R', '2R', '3R'])).toStrictEqual([['1R', '2R', '3R']]);
+    expect(validSets(['1R', '2R', '3R', '3R'])).toStrictEqual([
+      ['1R', '2R', '3R'],
+    ]);
+    expect(validSets(['1R', '2R', '3R', '4R'])).toStrictEqual([
       ['1R', '2R', '3R'],
       ['1R', '2R', '3R', '4R'],
       ['2R', '3R', '4R'],
     ]);
 
     // has runs using wildcard
-    expect(validSets(['2R', '3R', 'wildcard'])).toEqual([
+    expect(validSets(['2R', '3R', 'wildcard'])).toStrictEqual([
       ['2R', '3R', 'wildcard'],
     ]);
-    expect(validSets(['2R', '3R', '4R', 'wildcard'])).toEqual([
+    expect(validSets(['2R', '3R', '4R', 'wildcard'])).toStrictEqual([
       ['2R', '3R', 'wildcard'],
       ['2R', '3R', '4R', 'wildcard'],
       ['2R', '3R', '4R'],
       ['2R', '4R', 'wildcard'],
       ['3R', '4R', 'wildcard'],
     ]);
-    expect(validSets(['2R', '3R', '4R', 'wildcard', '6R'])).toEqual([
+    expect(validSets(['2R', '3R', '4R', 'wildcard', '6R'])).toStrictEqual([
       ['2R', '3R', 'wildcard'],
       ['2R', '3R', '4R', 'wildcard'],
       ['2R', '3R', '4R'],

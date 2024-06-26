@@ -9,12 +9,12 @@ function inits(list) {
 }
 
 test('inits', () => {
-  expect(inits([4, 3, 2, 1])).toEqual([
+  expect(inits([4, 3, 2, 1])).toStrictEqual([
     [],
     [4],
     [4, 3],
     [4, 3, 2],
     [4, 3, 2, 1],
   ]);
-  expect(inits([144])).toEqual([[], [144]]);
+  expect(inits([144])).toStrictEqual([[], [144]]);
 });

@@ -13,6 +13,6 @@ function minSubs(arr, k) {
 }
 
 test('minSubs', () => {
-  expect(minSubs([1, 3, 20, 4, 8, 9, 11], 3)).toEqual([4, 8, 9]);
-  expect(minSubs([4, 4, 4, 4, 8], 2)).toEqual([4, 4]);
+  expect(minSubs([1, 3, 20, 4, 8, 9, 11], 3)).toStrictEqual([4, 8, 9]);
+  expect(minSubs([4, 4, 4, 4, 8], 2)).toStrictEqual([4, 4]);
 });

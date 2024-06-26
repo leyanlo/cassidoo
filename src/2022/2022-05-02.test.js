@@ -5,7 +5,10 @@ function simpleAutocomplete(s) {
 }
 
 test('simpleAutocomplete', () => {
-  expect(simpleAutocomplete('app')).toEqual(['apple']);
-  expect(simpleAutocomplete('berry')).toEqual(['cranberry', 'strawberry']);
-  expect(simpleAutocomplete('fart')).toEqual([]);
+  expect(simpleAutocomplete('app')).toStrictEqual(['apple']);
+  expect(simpleAutocomplete('berry')).toStrictEqual([
+    'cranberry',
+    'strawberry',
+  ]);
+  expect(simpleAutocomplete('fart')).toStrictEqual([]);
 });

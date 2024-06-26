@@ -36,14 +36,14 @@ test('pathBetweenPoints', () => {
     { name: 'F', connections: ['E'] },
   ];
 
-  expect(pathBetweenPoints(listOfPoints, 'A', 'F')).toEqual([
+  expect(pathBetweenPoints(listOfPoints, 'A', 'F')).toStrictEqual([
     'A',
     'B',
     'E',
     'F',
   ]);
 
-  expect(pathBetweenPoints(listOfPoints, 'D', 'B')).toEqual([
+  expect(pathBetweenPoints(listOfPoints, 'D', 'B')).toStrictEqual([
     'D',
     'C',
     'A',

@@ -30,6 +30,6 @@ function coinCombo(coins, amount) {
 }
 
 test('coinCombo', () => {
-  expect(coinCombo([2, 3, 5, 7], 17)).toEqual([3, 7, 7]);
-  expect(coinCombo([2, 3, 5], 11)).toEqual([3, 3, 5]);
+  expect(coinCombo([2, 3, 5, 7], 17)).toStrictEqual([3, 7, 7]);
+  expect(coinCombo([2, 3, 5], 11)).toStrictEqual([3, 3, 5]);
 });

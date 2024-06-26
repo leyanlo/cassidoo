@@ -9,6 +9,6 @@ function localPeaks(arr) {
 }
 
 test('localPeaks', () => {
-  expect(localPeaks([1, 2, 3, 1])).toEqual([2]);
-  expect(localPeaks([1, 3, 2, 3, 5, 6, 4])).toEqual([1, 5]);
+  expect(localPeaks([1, 2, 3, 1])).toStrictEqual([2]);
+  expect(localPeaks([1, 3, 2, 3, 5, 6, 4])).toStrictEqual([1, 5]);
 });

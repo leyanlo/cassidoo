@@ -15,7 +15,7 @@ test('stockQueue', () => {
       { sym: 'AMZN', cost: 3213 },
       { sym: 'GME', cost: 325 },
     ])
-  ).toEqual([
+  ).toStrictEqual([
     { sym: 'PYPL', cost: 234 },
     { sym: 'AMZN', cost: 3213 },
     { sym: 'GME', cost: 325 },

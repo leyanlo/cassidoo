@@ -5,6 +5,11 @@ function generateArrays(n) {
 }
 
 test('generateArrays', () => {
-  expect(generateArrays(4)).toEqual([[1], [1, 2], [1, 2, 3], [1, 2, 3, 4]]);
-  expect(generateArrays(1)).toEqual([[1]]);
+  expect(generateArrays(4)).toStrictEqual([
+    [1],
+    [1, 2],
+    [1, 2, 3],
+    [1, 2, 3, 4],
+  ]);
+  expect(generateArrays(1)).toStrictEqual([[1]]);
 });

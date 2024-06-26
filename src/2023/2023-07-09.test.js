@@ -28,7 +28,7 @@ function justifyText(arr, width) {
 
 test('justifyText', () => {
   // prettier-ignore
-  expect(justifyText(["This", "is", "an", "example", "of", "text", "justification."], 16)).toEqual([
+  expect(justifyText(["This", "is", "an", "example", "of", "text", "justification."], 16)).toStrictEqual([
     "This    is    an",
     "example  of text",
     "justification.  "

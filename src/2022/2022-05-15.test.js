@@ -8,5 +8,5 @@ test('maximizedArray', () => {
   let arr1 = [7, 4, 10, 0, 1];
   let arr2 = [9, 7, 2, 3, 6];
 
-  expect(maximizedArray(arr1, arr2)).toEqual([4, 6, 7, 9, 10]);
+  expect(maximizedArray(arr1, arr2)).toStrictEqual([4, 6, 7, 9, 10]);
 });

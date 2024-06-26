@@ -9,5 +9,7 @@ function largestSubarraySum(arr, n) {
 }
 
 test('largestSubarraySum', () => {
-  expect(largestSubarraySum([3, 1, 4, 1, 5, 9, 2, 6], 3)).toEqual([9, 2, 6]);
+  expect(largestSubarraySum([3, 1, 4, 1, 5, 9, 2, 6], 3)).toStrictEqual([
+    9, 2, 6,
+  ]);
 });

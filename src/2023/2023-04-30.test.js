@@ -3,9 +3,9 @@ function removeZeroes(arr) {
 }
 
 test('removeZeroes', () => {
-  expect(removeZeroes([0, 0, 0, 3, 1, 4, 1, 5, 9, 0, 0, 0, 0])).toEqual([
+  expect(removeZeroes([0, 0, 0, 3, 1, 4, 1, 5, 9, 0, 0, 0, 0])).toStrictEqual([
     3, 1, 4, 1, 5, 9,
   ]);
-  expect(removeZeroes([0, 0, 0])).toEqual([]);
-  expect(removeZeroes([8])).toEqual([8]);
+  expect(removeZeroes([0, 0, 0])).toStrictEqual([]);
+  expect(removeZeroes([8])).toStrictEqual([8]);
 });

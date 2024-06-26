@@ -20,7 +20,7 @@ test('mergeIntervals', () => {
       [8, 10],
       [15, 20],
     ])
-  ).toEqual([
+  ).toStrictEqual([
     [1, 6],
     [8, 10],
     [15, 20],
@@ -31,5 +31,5 @@ test('mergeIntervals', () => {
       [1, 2],
       [2, 7],
     ])
-  ).toEqual([[1, 7]]);
+  ).toStrictEqual([[1, 7]]);
 });

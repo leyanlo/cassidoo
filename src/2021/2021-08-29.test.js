@@ -1,5 +1,5 @@
 function longestPrefix(arr) {
-  let prefix = arr[0] ?? ''
+  let prefix = arr[0] ?? '';
   for (let i = 1; i < arr.length && prefix; i++) {
     const str = arr[i];
     for (let j = 0; j < prefix.length; j++) {

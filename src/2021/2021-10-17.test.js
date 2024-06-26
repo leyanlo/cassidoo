@@ -12,5 +12,5 @@ test('reorder', () => {
   let a = ['C', 'D', 'E', 'F', 'G', 'H'];
   let b = [3, 0, 4, 1, 2, 5];
   reorder(a, b);
-  expect(a).toEqual(['D', 'F', 'G', 'C', 'E', 'H']);
+  expect(a).toStrictEqual(['D', 'F', 'G', 'C', 'E', 'H']);
 });

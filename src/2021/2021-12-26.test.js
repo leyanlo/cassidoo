@@ -45,10 +45,10 @@ function orderFireworks(fireworks) {
 test('orderFireworks', () => {
   expect(
     orderFireworks(['green', 'green', 'green', 'red', 'red', 'blue'])
-  ).toEqual(['green', 'red', 'green', 'blue', 'red', 'green']);
+  ).toStrictEqual(['green', 'red', 'green', 'blue', 'red', 'green']);
   expect(
     orderFireworks(['green', 'green', 'green', 'green', 'red', 'red', 'blue'])
-  ).toEqual(['green', 'red', 'green', 'blue', 'green', 'red', 'green']);
+  ).toStrictEqual(['green', 'red', 'green', 'blue', 'green', 'red', 'green']);
   expect(
     orderFireworks([
       'green',
@@ -63,5 +63,5 @@ test('orderFireworks', () => {
   ).toBe(null);
   expect(
     orderFireworks(['green', 'green', 'red', 'red', 'blue', 'blue'])
-  ).toEqual(['green', 'red', 'blue', 'green', 'red', 'blue']);
+  ).toStrictEqual(['green', 'red', 'blue', 'green', 'red', 'blue']);
 });

@@ -79,11 +79,11 @@ test('startToEnd', () => {
     [0, 0, 2],
   ];
 
-  expect(startToEnd(grid)).toEqual([
+  expect(startToEnd(grid)).toStrictEqual([
     ['right', 'right', 'down'],
     ['right', 'down', 'right'],
     ['down', 'right', 'right'],
   ]);
 
-  expect(startToEnd(grid2)).toEqual([['down', 'right', 'right']]);
+  expect(startToEnd(grid2)).toStrictEqual([['down', 'right', 'right']]);
 });

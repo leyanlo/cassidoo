@@ -9,9 +9,7 @@ function groupAnagrams(arr) {
 }
 
 test('groupAnagrams', () => {
-  expect(groupAnagrams(['eat', 'tea', 'ten', 'poop', 'net', 'ate'])).toEqual([
-    ['eat', 'tea', 'ate'],
-    ['ten', 'net'],
-    ['poop'],
-  ]);
+  expect(
+    groupAnagrams(['eat', 'tea', 'ten', 'poop', 'net', 'ate'])
+  ).toStrictEqual([['eat', 'tea', 'ate'], ['ten', 'net'], ['poop']]);
 });

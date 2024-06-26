@@ -14,6 +14,6 @@ function pascals(rowIndex) {
 }
 
 test('pascals', () => {
-  expect(pascals(0)).toEqual([1]);
-  expect(pascals(3)).toEqual([1, 3, 3, 1]);
+  expect(pascals(0)).toStrictEqual([1]);
+  expect(pascals(3)).toStrictEqual([1, 3, 3, 1]);
 });

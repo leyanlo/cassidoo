@@ -10,8 +10,8 @@ function fibLike(a, b, n) {
 
 test('fibLike', () => {
   let n = 5;
-  expect(fibLike(10, 20, n)).toEqual([10, 20, 30, 50, 80]);
-  expect(fibLike(3, 7, n)).toEqual([3, 7, 10, 17, 27]);
+  expect(fibLike(10, 20, n)).toStrictEqual([10, 20, 30, 50, 80]);
+  expect(fibLike(3, 7, n)).toStrictEqual([3, 7, 10, 17, 27]);
 });
 
 // extra credit

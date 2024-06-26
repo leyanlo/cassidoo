@@ -73,10 +73,10 @@ describe('firstAvailable', () => {
   };
 
   it('returns the first available meeting time', () => {
-    expect(firstAvailable([alice], hToMs(1))).toEqual(hToDate(8));
-    expect(firstAvailable([alice, bob], hToMs(1))).toEqual(hToDate(11));
-    expect(firstAvailable([alice, chuck], hToMs(1))).toEqual(hToDate(9));
-    expect(firstAvailable([bob, chuck], hToMs(1))).toEqual(hToDate(13));
+    expect(firstAvailable([alice], hToMs(1))).toStrictEqual(hToDate(8));
+    expect(firstAvailable([alice, bob], hToMs(1))).toStrictEqual(hToDate(11));
+    expect(firstAvailable([alice, chuck], hToMs(1))).toStrictEqual(hToDate(9));
+    expect(firstAvailable([bob, chuck], hToMs(1))).toStrictEqual(hToDate(13));
   });
   it('returns null if no people', () => {
     expect(firstAvailable([], hToMs(1))).toBe(null);

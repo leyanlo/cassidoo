@@ -12,9 +12,9 @@ function localTime(name, hour24) {
   const date = new Date(Date.now() + dh * 3_600_000 + dm * 60_000);
   const h = date.getHours();
   const m = date.getMinutes();
-  return `${
-    hour24 ? h.toString().padStart(2, '0') : ((h + 11) % 12) + 1
-  }:${m.toString().padStart(2, '0')}${hour24 ? '' : h < 12 ? 'am' : 'pm'}`;
+  return `${hour24 ? h.toString().padStart(2, '0') : ((h + 11) % 12) + 1}:${m
+    .toString()
+    .padStart(2, '0')}${hour24 ? '' : h < 12 ? 'am' : 'pm'}`;
 }
 
 jest.useFakeTimers().setSystemTime(new Date('2022-01-31T05:26:00').getTime());

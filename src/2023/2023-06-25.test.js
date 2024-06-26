@@ -14,9 +14,9 @@ function missingLetters(arr) {
 }
 
 test('missingLetters', () => {
-  expect(missingLetters(['a', 'b', 'c', 'd', 'f'])).toEqual(['e']);
+  expect(missingLetters(['a', 'b', 'c', 'd', 'f'])).toStrictEqual(['e']);
   expect(
     // prettier-ignore
     missingLetters(['a', 'b', 'c', 'd', 'e', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z'])
-  ).toEqual(['f', 'g', 'v']);
+  ).toStrictEqual(['f', 'g', 'v']);
 });

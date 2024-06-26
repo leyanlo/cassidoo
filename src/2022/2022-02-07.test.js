@@ -33,7 +33,7 @@ test('findWord', () => {
     ['x', 'c', 'w', 'e'],
     ['r', 'l', 'e', 'p'],
   ];
-  expect(findWord(grid, 'ace')).toEqual([
+  expect(findWord(grid, 'ace')).toStrictEqual([
     ['*', 'a', 'q', 't'],
     ['x', '*', 'w', 'e'],
     ['r', 'l', '*', 'p'],

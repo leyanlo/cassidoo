@@ -19,16 +19,15 @@ function combineStrings(arr, n) {
 }
 
 test('combineStrings', () => {
-  expect(combineStrings(['a', 'b', 'c', 'd', 'e', 'f', 'g'], 5)).toEqual([
+  expect(combineStrings(['a', 'b', 'c', 'd', 'e', 'f', 'g'], 5)).toStrictEqual([
     'a b c',
     'd e f',
     'g',
   ]);
-  expect(combineStrings(['a', 'b', 'c', 'd', 'e', 'f', 'g'], 12)).toEqual([
-    'a b c d e f',
-    'g',
-  ]);
+  expect(combineStrings(['a', 'b', 'c', 'd', 'e', 'f', 'g'], 12)).toStrictEqual(
+    ['a b c d e f', 'g']
+  );
   expect(
     combineStrings(['alpha', 'beta', 'gamma', 'delta', 'epsilon'], 20)
-  ).toEqual(['alpha beta gamma', 'delta epsilon']);
+  ).toStrictEqual(['alpha beta gamma', 'delta epsilon']);
 });

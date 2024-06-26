@@ -12,6 +12,6 @@ function explodeString(str) {
 
 test('explodeString', () => {
   // prettier-ignore
-  expect(explodeString('Ahh, abracadabra!')).toEqual(['!',',','A','aaaaa','bb','c','d','hh','rr']);
-  expect(explodeString('\\o/\\o/')).toEqual(['//', '\\\\', 'oo']);
+  expect(explodeString('Ahh, abracadabra!')).toStrictEqual(['!',',','A','aaaaa','bb','c','d','hh','rr']);
+  expect(explodeString('\\o/\\o/')).toStrictEqual(['//', '\\\\', 'oo']);
 });

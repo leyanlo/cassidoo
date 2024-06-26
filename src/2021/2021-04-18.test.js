@@ -4,5 +4,5 @@ function moveZeroes(arr) {
 }
 
 test('moveZeroes', () => {
-  expect(moveZeroes([0, 2, 0, 3, 8])).toEqual([2, 3, 8, 0, 0]);
+  expect(moveZeroes([0, 2, 0, 3, 8])).toStrictEqual([2, 3, 8, 0, 0]);
 });

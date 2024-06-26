@@ -12,7 +12,7 @@ function formParens(n) {
 }
 
 test('formParens', () => {
-  expect(formParens(3)).toEqual([
+  expect(formParens(3)).toStrictEqual([
     '((()))',
     '(()())',
     '(())()',
