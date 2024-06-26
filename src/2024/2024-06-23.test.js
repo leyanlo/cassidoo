@@ -1,7 +1,6 @@
 function dailyTemperatures(temps) {
   const stack = [];
-  const res = Array.from({ length: temps.length }).fill(0);
-
+  const res = temps.map(() => 0);
   for (let i = 0; i < temps.length; i++) {
     const temp = temps[i];
     while (stack.at(-1)?.temp < temp) {
